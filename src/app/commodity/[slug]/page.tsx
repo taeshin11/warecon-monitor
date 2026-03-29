@@ -16,7 +16,59 @@ import {
 } from "recharts";
 import Badge from "@/components/ui/Badge";
 import { ChartSkeleton } from "@/components/ui/Skeleton";
+import ShareButtons from "@/components/ui/ShareButtons";
 import Link from "next/link";
+
+const COMMODITY_CONTEXT: Record<string, { why: string; relatedSlugs: { slug: string; name: string }[] }> = {
+  "CL=F": {
+    why: "Crude Oil (WTI) is the most war-sensitive commodity in global markets. Middle East tensions, OPEC production decisions, and shipping route disruptions can cause price swings of 10%+ within days. The Russia-Ukraine conflict and Red Sea Houthi attacks have been key recent drivers.",
+    relatedSlugs: [
+      { slug: "brent-oil", name: "Brent Crude Oil" },
+      { slug: "natural-gas", name: "Natural Gas" },
+      { slug: "gold", name: "Gold" },
+    ],
+  },
+  "NG=F": {
+    why: "Natural Gas prices are heavily influenced by the Russia-Ukraine conflict, as Russia was Europe's largest gas supplier. Pipeline disruptions, sanctions, and the shift to LNG have created sustained volatility in global natural gas markets.",
+    relatedSlugs: [
+      { slug: "crude-oil", name: "Crude Oil (WTI)" },
+      { slug: "brent-oil", name: "Brent Crude Oil" },
+      { slug: "wheat", name: "Wheat" },
+    ],
+  },
+  "ZW=F": {
+    why: "Wheat prices surged over 50% following Russia's invasion of Ukraine — both nations are among the world's top grain exporters. The Black Sea grain corridor collapse and ongoing conflict continue to threaten global food security and wheat supply chains.",
+    relatedSlugs: [
+      { slug: "corn", name: "Corn" },
+      { slug: "crude-oil", name: "Crude Oil (WTI)" },
+      { slug: "natural-gas", name: "Natural Gas" },
+    ],
+  },
+  "ZC=F": {
+    why: "Corn prices are affected by both direct conflict disruptions (Ukraine is a major corn exporter) and indirect effects like rising energy costs increasing farming expenses. Fertilizer supply disruptions from Russia sanctions have further inflated corn production costs.",
+    relatedSlugs: [
+      { slug: "wheat", name: "Wheat" },
+      { slug: "crude-oil", name: "Crude Oil (WTI)" },
+      { slug: "natural-gas", name: "Natural Gas" },
+    ],
+  },
+  "GC=F": {
+    why: "Gold is the classic safe-haven asset — when geopolitical uncertainty spikes, investors flock to gold, driving prices higher. Every major conflict since the Gulf War has produced gold price surges. The 2023-2024 Middle East escalation pushed gold to all-time highs.",
+    relatedSlugs: [
+      { slug: "crude-oil", name: "Crude Oil (WTI)" },
+      { slug: "brent-oil", name: "Brent Crude Oil" },
+      { slug: "wheat", name: "Wheat" },
+    ],
+  },
+  "BZ=F": {
+    why: "Brent Crude Oil, the global benchmark, is sensitive to any supply disruption in key shipping lanes. Houthi attacks on Red Sea vessels, OPEC+ emergency cuts, and Iran-Israel tensions have all driven significant Brent price volatility since 2023.",
+    relatedSlugs: [
+      { slug: "crude-oil", name: "Crude Oil (WTI)" },
+      { slug: "natural-gas", name: "Natural Gas" },
+      { slug: "gold", name: "Gold" },
+    ],
+  },
+};
 
 const TIME_RANGES: TimeRange[] = ["1W", "1M", "3M", "6M", "1Y"];
 
@@ -181,7 +233,7 @@ export default function CommodityPage() {
 
       {/* War Events */}
       {relevantEvents.length > 0 && (
-        <div className="bg-[var(--bg-card)] rounded-[var(--radius-md)] p-5 shadow-[var(--shadow-card)]">
+        <div className="bg-[var(--bg-card)] rounded-[var(--radius-md)] p-5 shadow-[var(--shadow-card)] mb-8">
           <h2 className="text-lg font-bold text-[var(--text-primary)] font-heading mb-4">
             Related Geopolitical Events
           </h2>
@@ -203,6 +255,44 @@ export default function CommodityPage() {
           </div>
         </div>
       )}
+
+      {/* SEO Context Section */}
+      {COMMODITY_CONTEXT[symbol] && (
+        <div className="bg-[var(--bg-card)] rounded-[var(--radius-md)] p-6 shadow-[var(--shadow-card)] mb-8">
+          <h2 className="text-lg font-bold text-[var(--text-primary)] font-heading mb-3">
+            Why {info.name} Prices Are Affected by War
+          </h2>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
+            {COMMODITY_CONTEXT[symbol].why}
+          </p>
+
+          <h3 className="text-sm font-bold text-[var(--text-primary)] mb-2">Related Commodities</h3>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {COMMODITY_CONTEXT[symbol].relatedSlugs.map((rc) => (
+              <Link
+                key={rc.slug}
+                href={`/commodity/${rc.slug}`}
+                className="px-3 py-1.5 text-xs bg-[var(--bg-secondary)] text-[var(--text-secondary)] rounded-full hover:text-[var(--accent-primary)] hover:bg-[var(--bg-primary)] transition-colors border border-[var(--border-light)]"
+              >
+                {rc.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-[var(--border-light)]">
+            <p className="text-xs text-[var(--text-muted)] mb-2">Share this page</p>
+            <ShareButtons />
+          </div>
+        </div>
+      )}
+
+      {/* Internal Links */}
+      <div className="flex flex-wrap gap-3 text-xs">
+        <Link href="/" className="text-[var(--accent-primary)] hover:underline">Dashboard</Link>
+        <Link href="/insights" className="text-[var(--accent-primary)] hover:underline">Insights & Analysis</Link>
+        <Link href="/#calculator" className="text-[var(--accent-primary)] hover:underline">Impact Calculator</Link>
+        <Link href="/#alerts" className="text-[var(--accent-primary)] hover:underline">Price Alerts</Link>
+      </div>
     </div>
   );
 }
