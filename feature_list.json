@@ -1,7 +1,7 @@
 {
   "features": [
     { "id": "F01", "name": "Project scaffold + Next.js setup", "status": "done", "priority": 1, "milestone": false },
-    { "id": "F02", "name": "GitHub repo creation", "status": "pending", "priority": 2, "milestone": false },
+    { "id": "F02", "name": "GitHub repo creation", "status": "done", "priority": 2, "milestone": false },
     { "id": "F03", "name": "Base layout + responsive shell", "status": "done", "priority": 3, "milestone": false },
     { "id": "F04", "name": "Soft color theme system", "status": "done", "priority": 4, "milestone": true },
     { "id": "F05", "name": "Commodity data fetcher", "status": "done", "priority": 5, "milestone": false },
@@ -24,7 +24,7 @@
     { "id": "F22", "name": "Loading skeletons", "status": "done", "priority": 22, "milestone": false },
     { "id": "F23", "name": "Error boundaries", "status": "done", "priority": 23, "milestone": false },
     { "id": "F24", "name": "Performance audit", "status": "done", "priority": 24, "milestone": false },
-    { "id": "F25", "name": "Vercel deployment", "status": "pending", "priority": 25, "milestone": false },
-    { "id": "F26", "name": "Final README.md", "status": "pending", "priority": 26, "milestone": true }
+    { "id": "F25", "name": "Vercel deployment", "status": "done", "priority": 25, "milestone": false },
+    { "id": "F26", "name": "Final README.md", "status": "done", "priority": 26, "milestone": true }
   ]
 }
