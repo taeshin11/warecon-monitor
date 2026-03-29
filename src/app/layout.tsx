@@ -57,6 +57,11 @@ export default function RootLayout({
         <DatasetJsonLd />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        {/* Adsterra Popunder — once per session */}
+        <script
+          async
+          src="https://pl29005635.profitablecpmratenetwork.com/fc/b5/08/fcb508d86e50d469980420fcba9639f3.js"
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
