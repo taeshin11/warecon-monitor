@@ -73,9 +73,12 @@ export async function fetchCommodities(): Promise<CommodityData[]> {
 
     if (commodities.length > 0) {
       setCache("commodities", commodities);
+      return commodities;
     }
 
-    return commodities;
+    // All API calls failed — fall back to mock data
+    console.warn("All Yahoo Finance calls failed, using mock data");
+    return getMockData();
   } catch (error) {
     console.error("Failed to fetch commodities:", error);
     return getMockData();
@@ -124,8 +127,30 @@ export async function fetchHistoricalData(
     return data;
   } catch (error) {
     console.error(`Failed to fetch historical data for ${symbol}:`, error);
-    return [];
+    return getMockHistoricalData(symbol, days);
   }
+}
+
+function getMockHistoricalData(symbol: string, days: number): HistoricalDataPoint[] {
+  const mockBase: Record<string, number> = {
+    "CL=F": 72, "NG=F": 3.2, "ZW=F": 5.8, "ZC=F": 4.5, "GC=F": 2030, "BZ=F": 76,
+  };
+  const base = mockBase[symbol] || 50;
+  const data: HistoricalDataPoint[] = [];
+  const now = new Date();
+
+  for (let i = days; i >= 0; i--) {
+    const date = new Date(now);
+    date.setDate(date.getDate() - i);
+    const drift = (Math.random() - 0.48) * 0.02;
+    const noise = base * (1 + drift * (days - i));
+    data.push({
+      date: date.toISOString().split("T")[0],
+      price: Math.round(noise * 100) / 100,
+      volume: Math.floor(Math.random() * 100000),
+    });
+  }
+  return data;
 }
 
 function getMockData(): CommodityData[] {
