@@ -21,7 +21,7 @@ export default function Header() {
               </p>
             </div>
           </Link>
-          <nav className="flex items-center gap-4" aria-label="Main navigation">
+          <nav className="flex items-center gap-2 sm:gap-4" aria-label="Main navigation">
             <Link
               href="/"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
@@ -29,16 +29,22 @@ export default function Header() {
               Dashboard
             </Link>
             <Link
-              href="#calculator"
+              href="/about"
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
+            >
+              About
+            </Link>
+            <Link
+              href="/how-to-use"
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
+            >
+              FAQ
+            </Link>
+            <Link
+              href="/#calculator"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               Calculator
-            </Link>
-            <Link
-              href="#alerts"
-              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-            >
-              Alerts
             </Link>
           </nav>
         </div>

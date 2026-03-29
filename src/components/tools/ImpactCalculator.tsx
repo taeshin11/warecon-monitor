@@ -120,7 +120,7 @@ export default function ImpactCalculator() {
           disabled={loading}
           className="px-6 py-2.5 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {loading ? "Calculating..." : "Calculate"}
+          {loading ? <><span className="spinner" /><span>Calculating...</span></> : "Calculate"}
         </button>
 
         {result && (

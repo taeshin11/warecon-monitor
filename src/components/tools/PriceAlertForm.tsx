@@ -96,7 +96,7 @@ export default function PriceAlertForm() {
             disabled={loading}
             className="px-6 py-2.5 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {loading ? "Subscribing..." : "Subscribe"}
+            {loading ? <><span className="spinner" /><span>Subscribing...</span></> : "Subscribe"}
           </button>
         </form>
       </div>

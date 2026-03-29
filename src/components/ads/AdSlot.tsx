@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 interface AdSlotProps {
   slotId: string;
   format: "banner" | "native" | "popunder";
@@ -6,6 +10,8 @@ interface AdSlotProps {
 }
 
 export default function AdSlot({ slotId, format, adKey, className }: AdSlotProps) {
+  const [popunderAllowed, setPopunderAllowed] = useState(false);
+
   const envKeys: Record<string, string | undefined> = {
     "slot-header": process.env.NEXT_PUBLIC_ADSTERRA_HEADER_KEY,
     "slot-infeed": process.env.NEXT_PUBLIC_ADSTERRA_INFEED_KEY,
@@ -14,6 +20,16 @@ export default function AdSlot({ slotId, format, adKey, className }: AdSlotProps
   };
 
   const key = adKey || envKeys[slotId];
+
+  useEffect(() => {
+    if (format === "popunder" && key) {
+      const shown = sessionStorage.getItem("warecon_popunder_shown");
+      if (!shown) {
+        setPopunderAllowed(true);
+        sessionStorage.setItem("warecon_popunder_shown", "true");
+      }
+    }
+  }, [format, key]);
 
   if (!key) {
     return (
@@ -41,6 +57,7 @@ export default function AdSlot({ slotId, format, adKey, className }: AdSlotProps
   }
 
   if (format === "popunder") {
+    if (!popunderAllowed) return null;
     return (
       <script
         async

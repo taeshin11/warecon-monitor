@@ -64,6 +64,34 @@ html {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* Price flash animation */
+@keyframes price-flash {
+  0% { background-color: transparent; }
+  25% { background-color: rgba(74, 114, 255, 0.12); }
+  100% { background-color: transparent; }
+}
+
+.price-flash {
+  animation: price-flash 0.8s ease-out;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
 /* Ad slot responsive */
 @media (max-width: 767px) {
   .ad-slot {

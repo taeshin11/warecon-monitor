@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { CommodityData } from "@/types";
 import { SYMBOL_TO_SLUG } from "@/lib/constants";
@@ -13,6 +14,17 @@ interface CommodityCardProps {
 export default function CommodityCard({ commodity }: CommodityCardProps) {
   const isPositive = commodity.changePercent >= 0;
   const slug = SYMBOL_TO_SLUG[commodity.symbol];
+  const priceRef = useRef<HTMLSpanElement>(null);
+  const prevPrice = useRef(commodity.price);
+
+  useEffect(() => {
+    if (prevPrice.current !== commodity.price && priceRef.current) {
+      priceRef.current.classList.remove("price-flash");
+      void priceRef.current.offsetWidth;
+      priceRef.current.classList.add("price-flash");
+    }
+    prevPrice.current = commodity.price;
+  }, [commodity.price]);
 
   return (
     <Link href={`/commodity/${slug}`}>
@@ -31,7 +43,7 @@ export default function CommodityCard({ commodity }: CommodityCardProps) {
         </div>
 
         <div className="mb-1">
-          <span className="text-2xl font-bold text-[var(--text-primary)] font-mono">
+          <span ref={priceRef} className="text-2xl font-bold text-[var(--text-primary)] font-mono rounded px-1 -mx-1">
             ${commodity.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </span>
         </div>

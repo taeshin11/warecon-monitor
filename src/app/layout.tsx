@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     siteName: "WarEcon Monitor",
     type: "website",
     locale: "en_US",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "WarEcon Monitor Dashboard" }],
   },
   twitter: {
     card: "summary_large_image",
