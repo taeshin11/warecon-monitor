@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <AdSlot slotId="slot-footer" format="banner" className="mb-6" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-6">
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
               WarEcon Monitor
@@ -29,14 +29,43 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
+              Commodities
+            </h3>
+            <nav aria-label="Commodity links" className="flex flex-col gap-2">
+              <Link href="/commodity/crude-oil" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Crude Oil (WTI)
+              </Link>
+              <Link href="/commodity/brent-oil" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Brent Crude Oil
+              </Link>
+              <Link href="/commodity/natural-gas" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Natural Gas
+              </Link>
+              <Link href="/commodity/gold" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Gold
+              </Link>
+              <Link href="/commodity/wheat" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Wheat
+              </Link>
+              <Link href="/commodity/corn" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Corn
+              </Link>
+            </nav>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
               Resources
             </h3>
             <nav aria-label="Footer navigation" className="flex flex-col gap-2">
+              <Link href="/insights" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+                Insights & Analysis
+              </Link>
               <Link href="/about" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
                 About Us
               </Link>
               <Link href="/how-to-use" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                How to Use &amp; FAQ
+                How to Use & FAQ
               </Link>
               <Link href="/#calculator" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
                 Impact Calculator
@@ -49,7 +78,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
-              Legal
+              Legal & Contact
             </h3>
             <nav aria-label="Legal navigation" className="flex flex-col gap-2">
               <Link href="/privacy-policy" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
@@ -58,6 +87,12 @@ export default function Footer() {
               <Link href="/terms-of-service" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
                 Terms of Service
               </Link>
+              <a
+                href="mailto:taeshinkim11@gmail.com?subject=WarEcon Monitor Feedback"
+                className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors"
+              >
+                Send Feedback
+              </a>
             </nav>
           </div>
         </div>

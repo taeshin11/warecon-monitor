@@ -1,0 +1,25 @@
+{
+  "name": "WarEcon Monitor — War-Impact Commodity Prices",
+  "short_name": "WarEcon",
+  "description": "Track real-time commodity prices affected by global conflicts. Free dashboard with war-event annotations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#4A72FF",
+  "orientation": "portrait-primary",
+  "categories": ["finance", "news", "business"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

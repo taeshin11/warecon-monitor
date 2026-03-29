@@ -27,6 +27,48 @@ export const WAR_EVENTS: WarEvent[] = [
     impactedCommodities: ["CL=F", "GC=F", "BZ=F"],
     severity: "high",
   },
+  {
+    date: "2024-08-06",
+    event: "Israel-Lebanon border escalation intensifies",
+    impactedCommodities: ["CL=F", "BZ=F", "GC=F"],
+    severity: "high",
+  },
+  {
+    date: "2024-10-01",
+    event: "Iran ballistic missile barrage on Israel",
+    impactedCommodities: ["CL=F", "BZ=F", "GC=F", "NG=F"],
+    severity: "critical",
+  },
+  {
+    date: "2025-01-15",
+    event: "Red Sea shipping insurance costs triple",
+    impactedCommodities: ["CL=F", "BZ=F", "NG=F"],
+    severity: "high",
+  },
+  {
+    date: "2025-03-20",
+    event: "Russia-Ukraine Black Sea grain corridor collapses",
+    impactedCommodities: ["ZW=F", "ZC=F", "NG=F"],
+    severity: "critical",
+  },
+  {
+    date: "2025-07-10",
+    event: "Taiwan Strait military tensions peak",
+    impactedCommodities: ["CL=F", "GC=F", "BZ=F"],
+    severity: "high",
+  },
+  {
+    date: "2025-11-22",
+    event: "OPEC+ emergency production cut amid Middle East crisis",
+    impactedCommodities: ["CL=F", "BZ=F", "NG=F"],
+    severity: "critical",
+  },
+  {
+    date: "2026-02-14",
+    event: "Sudan civil war disrupts African oil exports",
+    impactedCommodities: ["CL=F", "BZ=F", "GC=F"],
+    severity: "high",
+  },
 ];
 
 export const SLUG_TO_SYMBOL: Record<string, string> = {

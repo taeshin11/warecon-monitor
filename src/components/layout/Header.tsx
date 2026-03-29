@@ -29,6 +29,12 @@ export default function Header() {
               Dashboard
             </Link>
             <Link
+              href="/insights"
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
+            >
+              Insights
+            </Link>
+            <Link
               href="/about"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
             >
