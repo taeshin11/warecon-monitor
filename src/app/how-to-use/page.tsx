@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "How to Use & FAQ — WarEcon Monitor | Commodity Guide",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function HowToUsePage() {
   return (
     <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <FaqJsonLd />
       <article className="prose-custom">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-6 font-heading">
           How to Use WarEcon Monitor
