@@ -1,0 +1,30 @@
+{
+  "features": [
+    { "id": "F01", "name": "Project scaffold + Next.js setup", "status": "done", "priority": 1, "milestone": false },
+    { "id": "F02", "name": "GitHub repo creation", "status": "pending", "priority": 2, "milestone": false },
+    { "id": "F03", "name": "Base layout + responsive shell", "status": "done", "priority": 3, "milestone": false },
+    { "id": "F04", "name": "Soft color theme system", "status": "done", "priority": 4, "milestone": true },
+    { "id": "F05", "name": "Commodity data fetcher", "status": "done", "priority": 5, "milestone": false },
+    { "id": "F06", "name": "Commodity price cards", "status": "done", "priority": 6, "milestone": false },
+    { "id": "F07", "name": "Historical chart view", "status": "done", "priority": 7, "milestone": false },
+    { "id": "F08", "name": "War event timeline overlay", "status": "done", "priority": 8, "milestone": true },
+    { "id": "F09", "name": "SEO meta tags", "status": "done", "priority": 9, "milestone": false },
+    { "id": "F10", "name": "Sitemap + robots.txt", "status": "done", "priority": 10, "milestone": false },
+    { "id": "F11", "name": "Structured data (JSON-LD)", "status": "done", "priority": 11, "milestone": false },
+    { "id": "F12", "name": "Semantic HTML", "status": "done", "priority": 12, "milestone": true },
+    { "id": "F13", "name": "Adsterra ad integration", "status": "done", "priority": 13, "milestone": false },
+    { "id": "F14", "name": "Ad slot responsive behavior", "status": "done", "priority": 14, "milestone": false },
+    { "id": "F15", "name": "Ad fallback", "status": "done", "priority": 15, "milestone": true },
+    { "id": "F16", "name": "Price Alert signup form", "status": "done", "priority": 16, "milestone": false },
+    { "id": "F17", "name": "Google Sheets webhook", "status": "done", "priority": 17, "milestone": false },
+    { "id": "F18", "name": "Auto POST on form submit", "status": "done", "priority": 18, "milestone": false },
+    { "id": "F19", "name": "Calculate Impact tool", "status": "done", "priority": 19, "milestone": true },
+    { "id": "F20", "name": "Visitor counter (Today + Total)", "status": "done", "priority": 20, "milestone": false },
+    { "id": "F21", "name": "Counter UI placement", "status": "done", "priority": 21, "milestone": true },
+    { "id": "F22", "name": "Loading skeletons", "status": "done", "priority": 22, "milestone": false },
+    { "id": "F23", "name": "Error boundaries", "status": "done", "priority": 23, "milestone": false },
+    { "id": "F24", "name": "Performance audit", "status": "done", "priority": 24, "milestone": false },
+    { "id": "F25", "name": "Vercel deployment", "status": "pending", "priority": 25, "milestone": false },
+    { "id": "F26", "name": "Final README.md", "status": "pending", "priority": 26, "milestone": true }
+  ]
+}

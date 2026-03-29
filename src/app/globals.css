@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Background */
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F3F1EE;
+  --bg-card: #FFFFFF;
+
+  /* Text */
+  --text-primary: #2D2D2D;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  /* Accent */
+  --accent-primary: #4A72FF;
+  --accent-success: #34D399;
+  --accent-danger: #F87171;
+  --accent-warning: #FBBF24;
+
+  /* Borders & Shadows */
+  --border-light: #E5E7EB;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(74, 114, 255, 0.15);
+}
+
+/* Skeleton pulse */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ad slot responsive */
+@media (max-width: 767px) {
+  .ad-slot {
+    min-height: 50px;
+  }
+}
