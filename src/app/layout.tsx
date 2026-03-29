@@ -55,6 +55,12 @@ export default function RootLayout({
         />
         <WebApplicationJsonLd />
         <DatasetJsonLd />
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7098271335538021"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         {/* Adsterra Popunder — once per session */}
