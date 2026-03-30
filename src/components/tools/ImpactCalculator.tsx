@@ -5,6 +5,7 @@ import { COMMODITY_MAP } from "@/types";
 import { postToSheet } from "@/lib/sheets";
 import { Toast, useToast } from "../ui/Toast";
 import AdSlot from "../ads/AdSlot";
+import { useT } from "@/lib/i18n";
 
 export default function ImpactCalculator() {
   const [commodity, setCommodity] = useState("CL=F");
@@ -13,6 +14,7 @@ export default function ImpactCalculator() {
   const [result, setResult] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const { toast, showToast, hideToast } = useToast();
+  const t = useT();
 
   const handleCalculate = async () => {
     if (!startDate || !endDate) {
@@ -63,16 +65,16 @@ export default function ImpactCalculator() {
           id="calc-heading"
           className="text-xl font-bold text-[var(--text-primary)] mb-4 font-heading"
         >
-          Calculate Impact
+          {t("calc.title")}
         </h2>
         <p className="text-sm text-[var(--text-secondary)] mb-6">
-          See how a commodity&apos;s price changed between two dates.
+          {t("calc.description")}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           <div>
             <label htmlFor="calc-commodity" className="block text-xs text-[var(--text-muted)] mb-1">
-              Commodity
+              {t("calc.commodity")}
             </label>
             <select
               id="calc-commodity"
@@ -90,7 +92,7 @@ export default function ImpactCalculator() {
 
           <div>
             <label htmlFor="calc-start" className="block text-xs text-[var(--text-muted)] mb-1">
-              Start Date
+              {t("calc.startDate")}
             </label>
             <input
               id="calc-start"
@@ -103,7 +105,7 @@ export default function ImpactCalculator() {
 
           <div>
             <label htmlFor="calc-end" className="block text-xs text-[var(--text-muted)] mb-1">
-              End Date
+              {t("calc.endDate")}
             </label>
             <input
               id="calc-end"
@@ -120,12 +122,12 @@ export default function ImpactCalculator() {
           disabled={loading}
           className="px-6 py-2.5 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {loading ? <><span className="spinner" /><span>Calculating...</span></> : "Calculate"}
+          {loading ? <><span className="spinner" /><span>{t("calc.calculating")}</span></> : t("calc.calculate")}
         </button>
 
         {result && (
           <div className="mt-4 p-4 bg-[var(--bg-secondary)] rounded-[var(--radius-sm)]">
-            <p className="text-sm text-[var(--text-secondary)]">Price Change:</p>
+            <p className="text-sm text-[var(--text-secondary)]">{t("calc.change")}:</p>
             <p className="text-lg font-bold font-mono text-[var(--text-primary)]">{result}</p>
           </div>
         )}

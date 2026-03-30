@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AdSlot from "../ads/AdSlot";
 import { useVisitorCount } from "@/hooks/useVisitorCount";
+import { useT } from "@/lib/i18n";
 
 function formatNumber(n: number): string {
   return n.toLocaleString("en-US");
@@ -10,6 +11,7 @@ function formatNumber(n: number): string {
 
 export default function Footer() {
   const { today, total } = useVisitorCount();
+  const t = useT();
 
   return (
     <footer className="border-t border-[var(--border-light)] bg-[var(--bg-secondary)] mt-12">
@@ -22,76 +24,75 @@ export default function Footer() {
               WarEcon Monitor
             </h3>
             <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-              Track how geopolitical conflict moves global commodity markets — in real time. Free,
-              open-access dashboard for investors, researchers, and the public.
+              {t("footer.description")}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
-              Commodities
+              {t("footer.commodities")}
             </h3>
             <nav aria-label="Commodity links" className="flex flex-col gap-2">
               <Link href="/commodity/crude-oil" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Crude Oil (WTI)
+                {t("commodity.crudeOil")}
               </Link>
               <Link href="/commodity/brent-oil" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Brent Crude Oil
+                {t("commodity.brentOil")}
               </Link>
               <Link href="/commodity/natural-gas" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Natural Gas
+                {t("commodity.naturalGas")}
               </Link>
               <Link href="/commodity/gold" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Gold
+                {t("commodity.gold")}
               </Link>
               <Link href="/commodity/wheat" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Wheat
+                {t("commodity.wheat")}
               </Link>
               <Link href="/commodity/corn" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Corn
+                {t("commodity.corn")}
               </Link>
             </nav>
           </div>
 
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
-              Resources
+              {t("footer.resources")}
             </h3>
             <nav aria-label="Footer navigation" className="flex flex-col gap-2">
               <Link href="/insights" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Insights & Analysis
+                {t("footer.insightsAnalysis")}
               </Link>
               <Link href="/about" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                About Us
+                {t("footer.aboutUs")}
               </Link>
               <Link href="/how-to-use" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                How to Use & FAQ
+                {t("footer.howToUseFaq")}
               </Link>
               <Link href="/#calculator" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Impact Calculator
+                {t("footer.impactCalculator")}
               </Link>
               <Link href="/#alerts" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Price Alerts
+                {t("footer.priceAlerts")}
               </Link>
             </nav>
           </div>
 
           <div>
             <h3 className="text-sm font-bold text-[var(--text-primary)] mb-3 font-heading">
-              Legal & Contact
+              {t("footer.legal")}
             </h3>
             <nav aria-label="Legal navigation" className="flex flex-col gap-2">
               <Link href="/privacy-policy" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Privacy Policy
+                {t("footer.privacy")}
               </Link>
               <Link href="/terms-of-service" className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
-                Terms of Service
+                {t("footer.terms")}
               </Link>
               <a
                 href="mailto:taeshinkim11@gmail.com?subject=WarEcon Monitor Feedback"
                 className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors"
               >
-                Send Feedback
+                {t("footer.sendFeedback")}
               </a>
             </nav>
           </div>
@@ -99,12 +100,12 @@ export default function Footer() {
 
         <div className="border-t border-[var(--border-light)] pt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-[var(--text-muted)]">
-            &copy; 2026 WarEcon Monitor. Data from Yahoo Finance. Not financial advice.
+            {t("footer.copyright")}
           </div>
 
           <div className="text-xs text-[var(--text-muted)]" aria-label="Visitor count">
             <span role="img" aria-label="views">&#128065;</span>{" "}
-            Today: {formatNumber(today)} | Total: {formatNumber(total)}
+            {t("footer.today")} {formatNumber(today)} | {t("footer.total")} {formatNumber(total)}
           </div>
         </div>
       </div>

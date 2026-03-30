@@ -1,10 +1,14 @@
 "use client";
 
+import { useT } from "@/lib/i18n";
+
 const SITE_URL = "https://warecon-monitor.vercel.app";
-const SHARE_TEXT = "Track how war and geopolitical conflicts impact commodity prices in real time — free dashboard";
 
 export default function ShareButtons() {
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SITE_URL)}`;
+  const t = useT();
+  const shareText = t("share.shareText");
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(SITE_URL)}`;
   const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}`;
   const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(SITE_URL)}&title=${encodeURIComponent("WarEcon Monitor — Free War-Impact Commodity Price Dashboard")}`;
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}`;

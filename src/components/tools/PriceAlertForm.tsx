@@ -4,12 +4,14 @@ import { useState } from "react";
 import { COMMODITY_MAP } from "@/types";
 import { postToSheet } from "@/lib/sheets";
 import { Toast, useToast } from "../ui/Toast";
+import { useT } from "@/lib/i18n";
 
 export default function PriceAlertForm() {
   const [email, setEmail] = useState("");
   const [selectedCommodities, setSelectedCommodities] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const { toast, showToast, hideToast } = useToast();
+  const t = useT();
 
   const toggleCommodity = (symbol: string) => {
     setSelectedCommodities((prev) =>
@@ -32,7 +34,7 @@ export default function PriceAlertForm() {
         email,
         commodity: selectedCommodities.join(","),
       });
-      showToast("Subscribed successfully!", "success");
+      showToast(t("alerts.success"), "success");
       setEmail("");
       setSelectedCommodities([]);
     } catch {
@@ -49,16 +51,16 @@ export default function PriceAlertForm() {
           id="alerts-heading"
           className="text-xl font-bold text-[var(--text-primary)] mb-2 font-heading"
         >
-          Price Alerts
+          {t("alerts.title")}
         </h2>
         <p className="text-sm text-[var(--text-secondary)] mb-6">
-          Get notified when war-impacted commodity prices change significantly.
+          {t("alerts.description")}
         </p>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="alert-email" className="block text-xs text-[var(--text-muted)] mb-1">
-              Email Address
+              {t("alerts.email")}
             </label>
             <input
               id="alert-email"
@@ -72,7 +74,7 @@ export default function PriceAlertForm() {
           </div>
 
           <div className="mb-4">
-            <p className="text-xs text-[var(--text-muted)] mb-2">Select Commodities</p>
+            <p className="text-xs text-[var(--text-muted)] mb-2">{t("alerts.selectCommodities")}</p>
             <div className="flex flex-wrap gap-2">
               {Object.entries(COMMODITY_MAP).map(([sym, info]) => (
                 <button
@@ -96,7 +98,7 @@ export default function PriceAlertForm() {
             disabled={loading}
             className="px-6 py-2.5 bg-[var(--accent-primary)] text-white rounded-[var(--radius-sm)] text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {loading ? <><span className="spinner" /><span>Subscribing...</span></> : "Subscribe"}
+            {loading ? <><span className="spinner" /><span>{t("alerts.subscribing")}</span></> : t("alerts.subscribe")}
           </button>
         </form>
       </div>

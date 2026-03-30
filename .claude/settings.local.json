@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(json|ts|js\\)$\")",
+      "WebFetch(domain:warecon-monitor.vercel.app)",
+      "Bash(npm run:*)"
+    ]
+  }
+}

@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import AdSlot from "../ads/AdSlot";
+import LanguageSelector from "../ui/LanguageSelector";
+import { useT } from "@/lib/i18n";
 
 export default function Header() {
+  const t = useT();
+
   return (
     <header className="sticky top-0 z-50 bg-[var(--bg-primary)] border-b border-[var(--border-light)]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +21,7 @@ export default function Header() {
                 WarEcon Monitor
               </h1>
               <p className="text-xs text-[var(--text-muted)] leading-tight hidden sm:block">
-                War &amp; Commodity Prices
+                {t("header.subtitle")}
               </p>
             </div>
           </Link>
@@ -26,32 +30,33 @@ export default function Header() {
               href="/"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
-              Dashboard
+              {t("nav.dashboard")}
             </Link>
             <Link
               href="/insights"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
             >
-              Insights
+              {t("nav.insights")}
             </Link>
             <Link
               href="/about"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
             >
-              About
+              {t("nav.about")}
             </Link>
             <Link
               href="/how-to-use"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:inline"
             >
-              FAQ
+              {t("nav.faq")}
             </Link>
             <Link
               href="/#calculator"
               className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
-              Calculator
+              {t("nav.calculator")}
             </Link>
+            <LanguageSelector />
           </nav>
         </div>
       </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FeedbackButton from "@/components/ui/FeedbackButton";
+import { I18nProvider } from "@/lib/i18n";
 import { WebApplicationJsonLd, DatasetJsonLd } from "@/components/seo/JsonLd";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://warecon-monitor.vercel.app";
@@ -145,10 +146,12 @@ export default function RootLayout({
           async
           src="https://pl29005635.profitablecpmratenetwork.com/fc/b5/08/fcb508d86e50d469980420fcba9639f3.js"
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FeedbackButton />
+        <I18nProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FeedbackButton />
+        </I18nProvider>
       </body>
     </html>
   );
