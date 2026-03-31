@@ -11,14 +11,28 @@ type I18nContextType = {
 
 const I18nContext = createContext<I18nContextType | null>(null);
 
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setCookie(name: string, value: string) {
+  document.cookie = `${name}=${encodeURIComponent(value)};path=/;max-age=${60 * 60 * 24 * 365};samesite=lax`;
+}
+
 function detectLocale(): Locale {
   if (typeof window === "undefined") return "en";
 
-  // Check localStorage first
+  // 1. Check cookie (set by middleware from Accept-Language header)
+  const cookieLocale = getCookie("warecon-locale");
+  if (cookieLocale && cookieLocale in translations) return cookieLocale as Locale;
+
+  // 2. Check localStorage (user's manual choice)
   const saved = localStorage.getItem("warecon-locale");
   if (saved && saved in translations) return saved as Locale;
 
-  // Detect from browser
+  // 3. Detect from browser navigator
   const browserLangs = navigator.languages || [navigator.language];
   for (const lang of browserLangs) {
     const code = lang.toLowerCase().split("-")[0] as Locale;
@@ -28,18 +42,33 @@ function detectLocale(): Locale {
   return "en";
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-  const [mounted, setMounted] = useState(false);
+// Get initial locale from cookie synchronously (available during first render)
+function getInitialLocale(): Locale {
+  if (typeof document === "undefined") return "en";
+  const cookieLocale = getCookie("warecon-locale");
+  if (cookieLocale && cookieLocale in translations) return cookieLocale as Locale;
+  return "en";
+}
 
+export function I18nProvider({ children }: { children: ReactNode }) {
+  // Use cookie-based locale for initial render to avoid flash
+  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
   useEffect(() => {
-    setLocaleState(detectLocale());
-    setMounted(true);
+    // After hydration, detect full locale (cookie + localStorage + navigator)
+    const detected = detectLocale();
+    setLocaleState(detected);
+
+    // Set direction for RTL languages
+    if (detected === "ar") {
+      document.documentElement.dir = "rtl";
+    }
+    document.documentElement.lang = detected;
   }, []);
 
   const setLocale = useCallback((loc: Locale) => {
     setLocaleState(loc);
     localStorage.setItem("warecon-locale", loc);
+    setCookie("warecon-locale", loc);
     document.documentElement.lang = loc;
     if (loc === "ar") {
       document.documentElement.dir = "rtl";
@@ -62,15 +91,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     [locale]
   );
 
-  // Don't flash English before switching — but still render children for SSR
-  if (!mounted) {
-    return (
-      <I18nContext.Provider value={{ locale: "en", setLocale, t: (key) => translations.en[key] ?? key }}>
-        {children}
-      </I18nContext.Provider>
-    );
-  }
-
+  // Suppress hydration warning by using suppressHydrationWarning on affected elements
+  // The locale may differ between server (en) and client (detected), but this is intentional
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>
       {children}

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(grep -E \"\\\\.\\(json|ts|js\\)$\")",
       "WebFetch(domain:warecon-monitor.vercel.app)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npx vercel:*)"
     ]
   }
 }
