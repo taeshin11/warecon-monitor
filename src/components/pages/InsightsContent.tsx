@@ -11,7 +11,7 @@ const insights = [
     titleFallback: "How the Russia-Ukraine War Reshaped Global Commodity Markets",
     summaryFallback: "The February 2022 invasion triggered the most significant commodity price shock since the 1973 oil embargo. Wheat surged 50%, natural gas in Europe hit record highs, and global food security was threatened as two of the world's top grain exporters went to war.",
     commodities: ["Wheat", "Natural Gas", "Crude Oil"],
-    date: "2026-03-15",
+    date: "2025-03-15",
     readTime: "8 min",
   },
   {
@@ -21,7 +21,7 @@ const insights = [
     titleFallback: "The Middle East Conflict Cycle and Oil Price Volatility",
     summaryFallback: "From the Hamas-Israel war to Houthi Red Sea attacks and Iran's direct strikes on Israel, the 2023-2024 Middle East escalation created sustained oil price volatility. Brent crude saw swings of 15%+ within single weeks.",
     commodities: ["Crude Oil", "Brent Oil", "Gold"],
-    date: "2026-03-10",
+    date: "2025-03-10",
     readTime: "7 min",
   },
   {
@@ -31,7 +31,7 @@ const insights = [
     titleFallback: "Gold as a Safe Haven: How Wars Drive Precious Metal Prices",
     summaryFallback: "Gold has historically served as the ultimate safe-haven asset during geopolitical crises. From the Gulf War to the Russia-Ukraine conflict, gold prices consistently surge when global uncertainty peaks.",
     commodities: ["Gold"],
-    date: "2026-03-05",
+    date: "2025-03-05",
     readTime: "6 min",
   },
   {
@@ -41,7 +41,7 @@ const insights = [
     titleFallback: "War and Food Security: How Conflicts Inflate Wheat and Corn Prices",
     summaryFallback: "When conflict disrupts agricultural regions, the global food supply chain faces cascading effects. The Black Sea grain corridor collapse pushed food commodity prices to threatening levels.",
     commodities: ["Wheat", "Corn"],
-    date: "2026-02-28",
+    date: "2025-02-28",
     readTime: "9 min",
   },
   {
@@ -51,7 +51,7 @@ const insights = [
     titleFallback: "Red Sea Shipping Crisis: The Hidden Impact on Energy Prices",
     summaryFallback: "Houthi attacks on commercial vessels forced major shipping companies to reroute around Africa, adding 10-14 days to transit times and tripling insurance premiums.",
     commodities: ["Crude Oil", "Brent Oil", "Natural Gas"],
-    date: "2026-02-20",
+    date: "2025-02-20",
     readTime: "7 min",
   },
   {
@@ -61,7 +61,7 @@ const insights = [
     titleFallback: "OPEC, Geopolitics, and the Fight for Oil Price Control",
     summaryFallback: "OPEC+ production decisions are deeply intertwined with geopolitical events. Emergency production cuts during the Middle East crisis and Russia's quota disputes all play into oil price movements.",
     commodities: ["Crude Oil", "Brent Oil"],
-    date: "2026-02-10",
+    date: "2025-02-10",
     readTime: "8 min",
   },
 ];

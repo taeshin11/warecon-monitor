@@ -64,7 +64,7 @@ export const WAR_EVENTS: WarEvent[] = [
     severity: "critical",
   },
   {
-    date: "2026-02-14",
+    date: "2025-02-14",
     event: "Sudan civil war disrupts African oil exports",
     impactedCommodities: ["CL=F", "BZ=F", "GC=F"],
     severity: "high",

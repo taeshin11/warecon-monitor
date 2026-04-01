@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-2 font-heading">
           Privacy Policy
         </h1>
-        <p className="text-sm text-[var(--text-muted)] mb-8">Last updated: March 29, 2026</p>
+        <p className="text-sm text-[var(--text-muted)] mb-8">Last updated: March 29, 2025</p>
 
         <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
           WarEcon Monitor (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) operates the website

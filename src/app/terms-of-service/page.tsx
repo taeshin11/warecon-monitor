@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-2 font-heading">
           Terms of Service
         </h1>
-        <p className="text-sm text-[var(--text-muted)] mb-8">Last updated: March 29, 2026</p>
+        <p className="text-sm text-[var(--text-muted)] mb-8">Last updated: March 29, 2025</p>
 
         <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
           Welcome to WarEcon Monitor. By accessing or using our website at

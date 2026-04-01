@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://warecon-monitor.vercel.app/sitemap.xml

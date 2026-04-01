@@ -4,7 +4,9 @@
       "Bash(grep -E \"\\\\.\\(json|ts|js\\)$\")",
       "WebFetch(domain:warecon-monitor.vercel.app)",
       "Bash(npm run:*)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "Bash(curl -s -H \"Accept-Language: ko-KR,ko;q=0.9,en;q=0.8\" https://warecon-monitor.vercel.app)",
+      "Bash(curl -sI -H \"Accept-Language: ko-KR,ko;q=0.9,en;q=0.8\" https://warecon-monitor.vercel.app)"
     ]
   }
 }
