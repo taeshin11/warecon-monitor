@@ -8,6 +8,8 @@ import { WebApplicationJsonLd, DatasetJsonLd } from "@/components/seo/JsonLd";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://warecon-monitor.vercel.app";
 
+const SUPPORTED_LOCALES = ["en", "ko", "ja", "zh", "es", "de", "fr", "pt"];
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -68,6 +70,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    languages: Object.fromEntries(
+      SUPPORTED_LOCALES.map((locale) => [locale, `${siteUrl}?lang=${locale}`])
+    ),
   },
   verification: {
     google: "google-site-verification-code",
